@@ -19,7 +19,7 @@ class SocialAuthController extends Controller
         $googleUser = Socialite::driver('google')->user();
         
         $this->_registerorLoginUser($googleUser);
-        
+        return redirect('home');
     }
 
     public function redirectToFacebook()
@@ -32,9 +32,8 @@ class SocialAuthController extends Controller
         $facebookUser = Socialite::driver('facebook')->stateless()->user();
         
         $this->_registerorLoginUser($facebookUser);
-
+        return redirect('home');
     }
-
 
 
     protected function _registerorLoginUser($data)
